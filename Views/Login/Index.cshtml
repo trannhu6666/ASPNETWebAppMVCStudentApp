@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Đăng Nhập";
+}
+
+<div class="row justify-content-center" style="margin-top: 80px;">
+    <div class="col-md-5">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4 bg-light">
+
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger text-center font-weight-bold">
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
+
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">Tên đăng nhập</label>
+                        @Html.TextBox("Username", null, new { @class = "form-control form-control-lg", @placeholder = "Nhập tài khoản...", @required = "required", @autofocus = "autofocus" })
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-secondary">Mật khẩu</label>
+                        @Html.Password("Password", null, new { @class = "form-control form-control-lg", @placeholder = "Nhập mật khẩu...", @required = "required" })
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold">ĐĂNG NHẬP</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

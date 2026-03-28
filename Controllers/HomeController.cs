@@ -3,27 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-namespace ASPNETWebAppMVCStudentApp.Controllers
+using ASPNETWebAppMVCStudentApp;
+namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult About()
+   
+        public ActionResult Departments()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Instructors()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Courses()
+        {
+            return View();
+        }
+
+        public ActionResult Students()
+        {
+            return View();
+        }
+        public ActionResult Enrollments()
+        {
             return View();
         }
     }
